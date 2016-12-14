@@ -343,7 +343,7 @@ def style_transfer(content_image, style_image,
 
                                 
 def create_textures():
-  vgg16.maybe_download()
+
  
   image_dir = '{0}'.format(IMAGE_DIRECTORY)
   style_dir = '{0}'.format(STYLE_DIRECTORY)
@@ -354,6 +354,7 @@ def create_textures():
   content_layer_ids = [4]
   style_layer_ids = list(range(13))
   for i in tqdm(range(len(images))):
+    vgg16.maybe_download()
     #print (images[i], labels[i], backgrounds[i])
     style_current = random.choice(styles)
     print ("current style "+ style_current)
